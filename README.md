@@ -71,6 +71,7 @@ Optional settings in popup:
 
 ### Recommended before publishing
 
-- Add icons to manifest (`16`, `48`, `128`) and include PNG files.
-- Test on common sites and local file pages.
-- Verify filename and download flow on macOS/Windows.
+- Verify permissions and description consistency in `manifest.json` and store listing text.
+- Test export on common sites and local `file://` pages.
+- Confirm save dialog and filename flow on macOS/Windows.
+- Re-check screenshot/banner visuals and locale-specific listing content before submit.
