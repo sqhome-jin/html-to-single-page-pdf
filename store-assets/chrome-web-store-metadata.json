@@ -1,0 +1,35 @@
+{
+  "name": "Single Page PDF Exporter",
+  "developer": "SQHOME-SUN",
+  "shortDescription": "Export the current page or selected region as a single-page PDF while preserving layout and styles.",
+  "category": "Productivity",
+  "languageAssets": {
+    "default": "store-assets/chrome-web-store-listing.md",
+    "en-US": "store-assets/chrome-web-store-listing.en-US.md",
+    "zh-CN": "store-assets/chrome-web-store-listing.zh-CN.md"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "screenshots": [
+    "store-assets/screenshot-1-region-selection.png",
+    "store-assets/screenshot-2-precise-bounds.png",
+    "store-assets/screenshot-3-save-dialog.png"
+  ],
+  "promoBanner": "store-assets/promo-banner-1400x560.png",
+  "privacyPolicy": "store-assets/privacy-policy.html",
+  "supportPage": "store-assets/support.html",
+  "keywords": [
+    "pdf",
+    "single page pdf",
+    "export pdf",
+    "print to pdf",
+    "webpage to pdf",
+    "resume pdf",
+    "save page as pdf",
+    "capture page"
+  ]
+}

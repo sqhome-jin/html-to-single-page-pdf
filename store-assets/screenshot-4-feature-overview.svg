@@ -1,0 +1,42 @@
+<svg width="1280" height="800" viewBox="0 0 1280 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg4" x1="0" y1="0" x2="1280" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EEF7FF"/>
+      <stop offset="1" stop-color="#F0FFF7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="800" fill="url(#bg4)"/>
+  <text x="80" y="78" fill="#0F172A" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">Feature Overview</text>
+  <text x="80" y="118" fill="#475569" font-family="Arial, Helvetica, sans-serif" font-size="22">A clean workflow from visual selection to direct PDF export.</text>
+  <rect x="80" y="170" width="1120" height="550" rx="32" fill="#FFFFFF" stroke="#D7E1F0" stroke-width="2"/>
+  <g>
+    <circle cx="230" cy="310" r="58" fill="#E8F5FF" stroke="#0A84FF" stroke-width="4"/>
+    <text x="230" y="318" text-anchor="middle" fill="#0A84FF" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">1</text>
+    <text x="150" y="410" fill="#0F172A" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Start selection</text>
+    <text x="120" y="445" fill="#64748B" font-family="Arial, Helvetica, sans-serif" font-size="18">Launch on-page region selection</text>
+  </g>
+  <g>
+    <circle cx="515" cy="310" r="58" fill="#ECFFF4" stroke="#34C759" stroke-width="4"/>
+    <text x="515" y="318" text-anchor="middle" fill="#16A34A" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">2</text>
+    <text x="437" y="410" fill="#0F172A" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Adjust bounds</text>
+    <text x="390" y="445" fill="#64748B" font-family="Arial, Helvetica, sans-serif" font-size="18">Scroll to expand or reduce region</text>
+  </g>
+  <g>
+    <circle cx="800" cy="310" r="58" fill="#F3EFFF" stroke="#8B5CF6" stroke-width="4"/>
+    <text x="800" y="318" text-anchor="middle" fill="#7C3AED" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">3</text>
+    <text x="720" y="410" fill="#0F172A" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Done</text>
+    <text x="692" y="445" fill="#64748B" font-family="Arial, Helvetica, sans-serif" font-size="18">Selection is captured instantly</text>
+  </g>
+  <g>
+    <circle cx="1085" cy="310" r="58" fill="#FFF5EA" stroke="#F59E0B" stroke-width="4"/>
+    <text x="1085" y="318" text-anchor="middle" fill="#D97706" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">4</text>
+    <text x="998" y="410" fill="#0F172A" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Save PDF</text>
+    <text x="952" y="445" fill="#64748B" font-family="Arial, Helvetica, sans-serif" font-size="18">Choose file name and location</text>
+  </g>
+  <path d="M288 310H457" stroke="#CBD5E1" stroke-width="6" stroke-linecap="round" stroke-dasharray="10 12"/>
+  <path d="M573 310H742" stroke="#CBD5E1" stroke-width="6" stroke-linecap="round" stroke-dasharray="10 12"/>
+  <path d="M858 310H1027" stroke="#CBD5E1" stroke-width="6" stroke-linecap="round" stroke-dasharray="10 12"/>
+  <rect x="372" y="520" width="536" height="118" rx="28" fill="rgba(52,199,89,0.05)" stroke="#34C759" stroke-width="5"/>
+  <text x="640" y="566" text-anchor="middle" fill="#0F172A" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Single-page export with precise control</text>
+  <text x="640" y="606" text-anchor="middle" fill="#475569" font-family="Arial, Helvetica, sans-serif" font-size="20">Built for resumes, reports, dashboards, invoices, and long web pages.</text>
+</svg>
