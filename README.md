@@ -57,6 +57,8 @@ Optional settings in popup:
 - Submission checklist: `store-assets/chrome-web-store-submission-checklist.md`
 - Privacy policy template: `store-assets/privacy-policy-template.md`
 - Privacy policy page: `store-assets/privacy-policy.html`
+- Privacy form answers (ZH-CN): `store-assets/chrome-web-store-privacy-form.zh-CN.md`
+- Privacy form answers (EN-US): `store-assets/chrome-web-store-privacy-form.en-US.md`
 - Support page: `store-assets/support.html`
 - Screenshots: `store-assets/screenshot-1-region-selection.png`, `store-assets/screenshot-2-precise-bounds.png`, `store-assets/screenshot-3-save-dialog.png`, `store-assets/screenshot-4-feature-overview.png`
 - Promo banner: `store-assets/promo-banner-1400x560.png`

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy - Single Page PDF Exporter</title>
+  <style>
+    :root {
+      --bg: #f3f8ff;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: #d9e3f0;
+      --accent: #0a84ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #eef6ff 0%, #f8fbff 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    main {
+      max-width: 860px;
+      margin: 48px auto;
+      padding: 0 20px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+    }
+    h1, h2 { margin: 0 0 16px; }
+    h1 { font-size: 36px; }
+    h2 { margin-top: 28px; font-size: 22px; }
+    p, li { color: var(--muted); }
+    .meta { margin-bottom: 20px; color: var(--muted); }
+    a { color: var(--accent); text-decoration: none; }
+    ul { padding-left: 20px; }
+    code {
+      background: #f1f5f9;
+      border-radius: 8px;
+      padding: 2px 6px;
+      color: #0f172a;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="card">
+      <h1>Privacy Policy</h1>
+      <p class="meta">Single Page PDF Exporter<br />Last updated: 2026-07-22</p>
+
+      <p>Single Page PDF Exporter, published by SQHOME-SUN, helps users export the current web page or a selected page region as a single-page PDF.</p>
+
+      <h2>Information Collection</h2>
+      <p>This extension does not collect, store, transmit, or sell personal information.</p>
+
+      <h2>How the Extension Works</h2>
+      <p>The extension uses Chrome extension APIs locally in the browser to:</p>
+      <ul>
+        <li>read the currently active tab content for export processing</li>
+        <li>allow the user to select a page region</li>
+        <li>generate a PDF from the selected page content</li>
+        <li>save the generated PDF using the browser download flow</li>
+      </ul>
+
+      <h2>Data Handling</h2>
+      <ul>
+        <li>Page processing happens locally on the user's device.</li>
+        <li>Exported PDF files are saved directly by the user through the browser save dialog.</li>
+        <li>No page content is uploaded to external servers by this extension.</li>
+        <li>No analytics, tracking scripts, or advertising SDKs are included.</li>
+      </ul>
+
+      <h2>Permissions Explanation</h2>
+      <ul>
+        <li><code>activeTab</code>: access the currently active tab when the user triggers export</li>
+        <li><code>scripting</code>: run page-side logic required for region selection and export preparation</li>
+        <li><code>debugger</code>: generate high-fidelity PDF output from the current page</li>
+        <li><code>downloads</code>: save generated PDF files</li>
+        <li><code>storage</code>: temporarily store selection data within the browser session</li>
+      </ul>
+
+      <h2>Third-Party Services</h2>
+      <p>This extension does not use remote third-party services for PDF generation or analytics.</p>
+
+      <h2>Changes to This Policy</h2>
+      <p>This privacy policy may be updated from time to time. Any changes should be published together with extension updates.</p>
+
+      <h2>Contact</h2>
+      <p>Developer: SQHOME-SUN<br />Support: <a href="https://github.com/sqhome-jin/html-to-single-page-pdf/issues">GitHub Issues</a></p>
+    </section>
+  </main>
+</body>
+</html>
