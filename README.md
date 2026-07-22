@@ -63,6 +63,18 @@ Optional settings in popup:
 
 ## Publish To Chrome Web Store
 
+### Build Upload ZIP
+
+Run this command from the extension folder:
+
+bash scripts/package-extension.sh
+
+Optional: pass a custom output directory:
+
+bash scripts/package-extension.sh ./release
+
+The script creates a clean ZIP package and excludes local-only files such as store assets, docs, git metadata, and helper scripts.
+
 1. Prepare store assets (icon, screenshots, description).
 2. Zip this folder content (do not zip parent folder).
 3. Go to Chrome Web Store Developer Dashboard.
