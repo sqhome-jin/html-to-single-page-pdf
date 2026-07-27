@@ -1,106 +1,122 @@
 # Single Page PDF Exporter (Chrome Extension)
 
-A Chrome extension that exports the current tab into a single-page PDF while preserving page layout and styles as much as possible.
+[English](README.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [Español](README.es.md) | [Français](README.fr.md) | [Deutsch](README.de.md)
 
-## Folder
+A Chrome extension that exports the current tab as a single-page PDF while preserving layout and styles as much as possible.
 
-This extension is self-contained in this directory and can be packaged independently for Chrome Web Store publishing.
+## :sparkles: Features
 
-## Load Locally
+- Single-page PDF export for the current tab.
+- Precise region controls with `left` / `right` / `top` / `bottom`.
+- Visual scroll-range selection mode with on-page overlay.
+- Automatic hide-and-restore of floating blockers during export.
+- Multilingual UI (6 languages) with manual language switch in popup.
+
+Supported UI languages:
+
+- 🇺🇸 English
+- 🇨🇳 简体中文
+- 🇭🇰 繁體中文
+- 🇪🇸 Español
+- 🇫🇷 Français
+- 🇩🇪 Deutsch
+
+## :rocket: Load Locally
 
 1. Open Chrome and go to `chrome://extensions`.
-2. Turn on **Developer mode**.
+2. Enable **Developer mode**.
 3. Click **Load unpacked**.
 4. Select this folder.
 
-## Usage
+## :clipboard: Usage
 
 1. Open any web page.
 2. Click the extension icon.
-3. Click **Export Current Tab**.
-4. Save the generated PDF.
+3. Adjust region if needed.
+4. Click **Export Current Tab** and save the PDF.
 
-Optional settings in popup:
-- **Language**: supports 6 common languages (English, Simplified Chinese, Traditional Chinese, Spanish, French, German). By default it follows browser language, and users can switch manually with flag-labeled options.
-- **Left/Right/Top/Bottom (px)**: precise region coordinates, auto-filled and editable.
-- **Refresh Current Bounds**: manually refresh current full-page boundaries.
-- **Start Scroll Range Selection**: enter visual selection mode with clear green highlight area (no blur glass layer).
-- Clicking **Start Scroll Range Selection** closes popup automatically so you can see overlay clearly.
-- After clicking **Done**, extension immediately runs **Export Current Tab** and shows the system save dialog for file name/location.
-- In selection mode, scrolling up reduces `bottom` (instead of changing `top`), making range trimming more intuitive.
-- Selection range is calculated from the web content viewport only (excluding browser chrome like menu/address bar).
-- **Ask file name before save**: toggle save dialog.
+Popup options:
 
-## Notes
+- **Language**: defaults to browser language, supports manual switching.
+- **Left/Right/Top/Bottom (px)**: exact export boundaries.
+- **Refresh Current Bounds**: reload page boundary values.
+- **Start Scroll Range Selection**: interactive visual selection on page.
+- **Ask file name before save**: toggle save dialog behavior.
 
-- The extension uses Chrome DevTools Protocol (`Page.printToPDF`) to produce high-fidelity PDF output.
-- For local `file://` pages, enable **Allow access to file URLs** in extension details.
-- Some highly dynamic pages (infinite scroll, lazy-loaded blocks) may require scrolling/loading content first.
+## :wrench: Build Packages
 
-## Files
+### Build ZIP (Chrome Web Store upload)
+
+```bash
+bash scripts/package-extension.sh
+```
+
+Optional output directory:
+
+```bash
+bash scripts/package-extension.sh ./release
+```
+
+### Build CRX
+
+```bash
+bash scripts/package-extension-crx.sh
+```
+
+Optional output directory and key path:
+
+```bash
+bash scripts/package-extension-crx.sh ./dist ./dist/single-page-pdf-exporter.pem
+```
+
+Notes:
+
+- The CRX script auto-detects Chrome/Edge on macOS.
+- First run creates a `.pem` key. Keep it safe to preserve extension identity.
+
+## :lock: Privacy & Data
+
+- Export happens locally in the browser.
+- No remote PDF generation service is required.
+- No analytics or tracking SDK is included.
+
+See:
+
+- `privacy-policy.html`
+- `store-assets/privacy-policy-template.md`
+- `store-assets/chrome-web-store-privacy-form.en-US.md`
+- `store-assets/chrome-web-store-privacy-form.zh-CN.md`
+
+## :file_folder: Key Files
 
 - `manifest.json`: Extension manifest (MV3)
-- `icons/icon16.png`, `icons/icon32.png`, `icons/icon48.png`, `icons/icon128.png`: colorful glass-style extension icons
-- `popup.html`: Popup UI
+- `popup.html`: Popup structure
 - `popup.css`: Popup styles
-- `popup.js`: Core export logic
+- `popup.js`: Popup logic, i18n, selection, export flow
+- `background.js`: Background export pipeline (`Page.printToPDF`)
+- `_locales/`: Translation dictionaries
+- `scripts/package-extension.sh`: ZIP packaging script
+- `scripts/package-extension-crx.sh`: CRX packaging script
 
-## Metadata
-
-- Author: `SQHOME-SUN`
-
-## Store Assets
+## :package: Store Assets
 
 - Listing copy: `store-assets/chrome-web-store-listing.md`
 - Listing copy (EN): `store-assets/chrome-web-store-listing.en-US.md`
 - Listing copy (ZH-CN): `store-assets/chrome-web-store-listing.zh-CN.md`
 - Metadata JSON: `store-assets/chrome-web-store-metadata.json`
 - Submission checklist: `store-assets/chrome-web-store-submission-checklist.md`
-- Privacy policy template: `store-assets/privacy-policy-template.md`
-- Privacy policy page: `store-assets/privacy-policy.html`
-- Privacy form answers (ZH-CN): `store-assets/chrome-web-store-privacy-form.zh-CN.md`
-- Privacy form answers (EN-US): `store-assets/chrome-web-store-privacy-form.en-US.md`
 - Support page: `store-assets/support.html`
-- Screenshots: `store-assets/screenshot-1-region-selection.png`, `store-assets/screenshot-2-precise-bounds.png`, `store-assets/screenshot-3-save-dialog.png`, `store-assets/screenshot-4-feature-overview.png`
-- Promo banner: `store-assets/promo-banner-1400x560.png`
+- Screenshots and banner: `store-assets/`
 
-## Publish To Chrome Web Store
+## :memo: Release Notes
 
-### Build Upload ZIP
+- [CHANGELOG.md](CHANGELOG.md)
+- [CHANGELOG.zh-CN.md](CHANGELOG.zh-CN.md)
+- [CHANGELOG.zh-TW.md](CHANGELOG.zh-TW.md)
+- [CHANGELOG.es.md](CHANGELOG.es.md)
+- [CHANGELOG.fr.md](CHANGELOG.fr.md)
+- [CHANGELOG.de.md](CHANGELOG.de.md)
 
-Run this command from the extension folder:
+## :bust_in_silhouette: Metadata
 
-bash scripts/package-extension.sh
-
-Optional: pass a custom output directory:
-
-bash scripts/package-extension.sh ./release
-
-The script creates a clean ZIP package and excludes local-only files such as store assets, docs, git metadata, and helper scripts.
-
-### Build CRX Package
-
-Run this command from the extension folder:
-
-bash scripts/package-extension-crx.sh
-
-Optional: pass custom output directory and signing key path:
-
-bash scripts/package-extension-crx.sh ./dist ./dist/single-page-pdf-exporter.pem
-
-Notes:
-- This script auto-detects Chrome on macOS. If needed, set `CHROME_BIN` manually.
-- First run generates a `.pem` key; keep it safe, because reusing this key keeps a stable extension ID.
-
-1. Prepare store assets (icon, screenshots, description).
-2. Zip this folder content (do not zip parent folder).
-3. Go to Chrome Web Store Developer Dashboard.
-4. Upload ZIP package.
-5. Fill listing metadata and submit review.
-
-### Recommended before publishing
-
-- Verify permissions and description consistency in `manifest.json` and store listing text.
-- Test export on common sites and local `file://` pages.
-- Confirm save dialog and filename flow on macOS/Windows.
-- Re-check screenshot/banner visuals and locale-specific listing content before submit.
+- Author: `SQHOME-SUN`
