@@ -4,7 +4,7 @@
 
 Una extensión de Chrome que exporta la pestaña actual como PDF de una sola página, conservando el diseño y los estilos lo mejor posible.
 
-## :sparkles: Funciones
+## ✨ Funciones
 
 - Exportación de PDF en una sola página para la pestaña actual.
 - Control preciso de región con `left` / `right` / `top` / `bottom`.
@@ -21,14 +21,14 @@ Idiomas compatibles:
 - 🇫🇷 Français
 - 🇩🇪 Deutsch
 
-## :rocket: Carga local
+## 🚀 Carga local
 
 1. Abre Chrome y ve a `chrome://extensions`.
 2. Activa **Developer mode**.
 3. Haz clic en **Load unpacked**.
 4. Selecciona esta carpeta.
 
-## :clipboard: Uso
+## 📋 Uso
 
 1. Abre cualquier página web.
 2. Haz clic en el icono de la extensión.
@@ -43,7 +43,7 @@ Opciones del popup:
 - **Start Scroll Range Selection**: selección visual interactiva.
 - **Ask file name before save**: activa/desactiva el diálogo de guardado.
 
-## :wrench: Empaquetado
+## 🔧 Empaquetado
 
 ### Generar ZIP (subida a Chrome Web Store)
 
@@ -74,7 +74,7 @@ Notas:
 - El script CRX detecta Chrome/Edge automáticamente en macOS.
 - En la primera ejecución se genera una clave `.pem`. Guárdala para mantener la identidad de la extensión.
 
-## :lock: Privacidad y datos
+## 🔒 Privacidad y datos
 
 - El procesamiento se realiza localmente en el navegador.
 - No requiere servicios remotos para generar PDF.
@@ -87,7 +87,7 @@ Ver:
 - `store-assets/chrome-web-store-privacy-form.en-US.md`
 - `store-assets/chrome-web-store-privacy-form.zh-CN.md`
 
-## :file_folder: Archivos clave
+## 📁 Archivos clave
 
 - `manifest.json`: manifiesto de extensión (MV3)
 - `popup.html`: estructura del popup
@@ -98,7 +98,7 @@ Ver:
 - `scripts/package-extension.sh`: script de ZIP
 - `scripts/package-extension-crx.sh`: script de CRX
 
-## :package: Recursos de tienda
+## 📦 Recursos de tienda
 
 - Texto principal: `store-assets/chrome-web-store-listing.md`
 - Texto EN: `store-assets/chrome-web-store-listing.en-US.md`
@@ -108,7 +108,7 @@ Ver:
 - Soporte: `store-assets/support.html`
 - Capturas y banner: `store-assets/`
 
-## :memo: Changelog
+## 📝 Changelog
 
 - [CHANGELOG.md](CHANGELOG.md)
 - [CHANGELOG.zh-CN.md](CHANGELOG.zh-CN.md)
@@ -117,6 +117,6 @@ Ver:
 - [CHANGELOG.fr.md](CHANGELOG.fr.md)
 - [CHANGELOG.de.md](CHANGELOG.de.md)
 
-## :bust_in_silhouette: Metadata
+## 👤 Metadata
 
 - Author: `SQHOME-SUN`

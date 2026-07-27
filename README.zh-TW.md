@@ -4,7 +4,7 @@
 
 可將目前分頁匯出為單頁 PDF，並盡量保留原始版面與樣式的 Chrome 擴充功能。
 
-## :sparkles: 功能
+## ✨ 功能
 
 - 目前分頁單頁 PDF 匯出
 - 支援 `left` / `right` / `top` / `bottom` 精準區域控制
@@ -21,14 +21,14 @@
 - 🇫🇷 Français
 - 🇩🇪 Deutsch
 
-## :rocket: 本機載入
+## 🚀 本機載入
 
 1. 開啟 Chrome，進入 `chrome://extensions`
 2. 開啟 **開發人員模式**
 3. 點擊 **載入未封裝項目**
 4. 選擇此目錄
 
-## :clipboard: 使用方式
+## 📋 使用方式
 
 1. 開啟任一網頁
 2. 點擊擴充功能圖示
@@ -43,7 +43,7 @@
 - **Start Scroll Range Selection**：進入視覺化選區
 - **Ask file name before save**：是否在儲存前詢問檔名
 
-## :wrench: 打包
+## 🔧 打包
 
 ### 產生 ZIP（用於 Chrome 商店上傳）
 
@@ -74,7 +74,7 @@ bash scripts/package-extension-crx.sh ./dist ./dist/single-page-pdf-exporter.pem
 - CRX 腳本會在 macOS 自動偵測 Chrome/Edge
 - 首次執行會產生 `.pem`，請妥善保管以維持擴充功能識別穩定
 
-## :lock: 隱私與資料
+## 🔒 隱私與資料
 
 - 全流程於本機瀏覽器中完成
 - 不依賴遠端 PDF 服務
@@ -87,7 +87,7 @@ bash scripts/package-extension-crx.sh ./dist ./dist/single-page-pdf-exporter.pem
 - `store-assets/chrome-web-store-privacy-form.en-US.md`
 - `store-assets/chrome-web-store-privacy-form.zh-CN.md`
 
-## :file_folder: 主要檔案
+## 📁 主要檔案
 
 - `manifest.json`：擴充功能清單（MV3）
 - `popup.html`：彈出視窗結構
@@ -98,7 +98,7 @@ bash scripts/package-extension-crx.sh ./dist ./dist/single-page-pdf-exporter.pem
 - `scripts/package-extension.sh`：ZIP 打包腳本
 - `scripts/package-extension-crx.sh`：CRX 打包腳本
 
-## :package: 商店素材
+## 📦 商店素材
 
 - 文案：`store-assets/chrome-web-store-listing.md`
 - 英文文案：`store-assets/chrome-web-store-listing.en-US.md`
@@ -108,7 +108,7 @@ bash scripts/package-extension-crx.sh ./dist ./dist/single-page-pdf-exporter.pem
 - 支援頁：`store-assets/support.html`
 - 截圖與橫幅：`store-assets/`
 
-## :memo: 更新日誌
+## 📝 更新日誌
 
 - [CHANGELOG.md](CHANGELOG.md)
 - [CHANGELOG.zh-CN.md](CHANGELOG.zh-CN.md)
@@ -117,6 +117,6 @@ bash scripts/package-extension-crx.sh ./dist ./dist/single-page-pdf-exporter.pem
 - [CHANGELOG.fr.md](CHANGELOG.fr.md)
 - [CHANGELOG.de.md](CHANGELOG.de.md)
 
-## :bust_in_silhouette: 中繼資訊
+## 👤 中繼資訊
 
 - Author: `SQHOME-SUN`

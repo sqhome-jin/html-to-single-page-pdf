@@ -4,7 +4,7 @@
 
 一个将当前标签页导出为单页 PDF 的 Chrome 扩展，并尽量保留原始布局与样式。
 
-## :sparkles: 功能
+## ✨ 功能
 
 - 当前标签页单页 PDF 导出
 - 支持 `left` / `right` / `top` / `bottom` 精确区域控制
@@ -21,14 +21,14 @@
 - 🇫🇷 Français
 - 🇩🇪 Deutsch
 
-## :rocket: 本地加载
+## 🚀 本地加载
 
 1. 打开 Chrome，进入 `chrome://extensions`
 2. 开启 **开发者模式**
 3. 点击 **加载已解压的扩展程序**
 4. 选择本目录
 
-## :clipboard: 使用方法
+## 📋 使用方法
 
 1. 打开任意网页
 2. 点击扩展图标
@@ -43,7 +43,7 @@
 - **Start Scroll Range Selection**：进入可视化选区
 - **Ask file name before save**：是否在保存前询问文件名
 
-## :wrench: 打包
+## 🔧 打包
 
 ### 生成 ZIP（用于 Chrome 商店上传）
 
@@ -74,7 +74,7 @@ bash scripts/package-extension-crx.sh ./dist ./dist/single-page-pdf-exporter.pem
 - CRX 脚本会在 macOS 自动检测 Chrome/Edge
 - 首次会生成 `.pem`，请妥善保管以保持扩展身份稳定
 
-## :lock: 隐私与数据
+## 🔒 隐私与数据
 
 - 全流程在本地浏览器中完成
 - 不依赖远程 PDF 服务
@@ -87,7 +87,7 @@ bash scripts/package-extension-crx.sh ./dist ./dist/single-page-pdf-exporter.pem
 - `store-assets/chrome-web-store-privacy-form.en-US.md`
 - `store-assets/chrome-web-store-privacy-form.zh-CN.md`
 
-## :file_folder: 关键文件
+## 📁 关键文件
 
 - `manifest.json`：扩展清单（MV3）
 - `popup.html`：弹窗结构
@@ -98,7 +98,7 @@ bash scripts/package-extension-crx.sh ./dist ./dist/single-page-pdf-exporter.pem
 - `scripts/package-extension.sh`：ZIP 打包脚本
 - `scripts/package-extension-crx.sh`：CRX 打包脚本
 
-## :package: 商店素材
+## 📦 商店素材
 
 - 文案：`store-assets/chrome-web-store-listing.md`
 - 英文文案：`store-assets/chrome-web-store-listing.en-US.md`
@@ -108,7 +108,7 @@ bash scripts/package-extension-crx.sh ./dist ./dist/single-page-pdf-exporter.pem
 - 支持页：`store-assets/support.html`
 - 截图与横幅：`store-assets/`
 
-## :memo: 变更日志
+## 📝 变更日志
 
 - [CHANGELOG.md](CHANGELOG.md)
 - [CHANGELOG.zh-CN.md](CHANGELOG.zh-CN.md)
@@ -117,6 +117,6 @@ bash scripts/package-extension-crx.sh ./dist ./dist/single-page-pdf-exporter.pem
 - [CHANGELOG.fr.md](CHANGELOG.fr.md)
 - [CHANGELOG.de.md](CHANGELOG.de.md)
 
-## :bust_in_silhouette: 元信息
+## 👤 元信息
 
 - Author: `SQHOME-SUN`

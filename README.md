@@ -4,7 +4,7 @@
 
 A Chrome extension that exports the current tab as a single-page PDF while preserving layout and styles as much as possible.
 
-## :sparkles: Features
+## ✨ Features
 
 - Single-page PDF export for the current tab.
 - Precise region controls with `left` / `right` / `top` / `bottom`.
@@ -21,14 +21,14 @@ Supported UI languages:
 - 🇫🇷 Français
 - 🇩🇪 Deutsch
 
-## :rocket: Load Locally
+## 🚀 Load Locally
 
 1. Open Chrome and go to `chrome://extensions`.
 2. Enable **Developer mode**.
 3. Click **Load unpacked**.
 4. Select this folder.
 
-## :clipboard: Usage
+## 📋 Usage
 
 1. Open any web page.
 2. Click the extension icon.
@@ -43,7 +43,7 @@ Popup options:
 - **Start Scroll Range Selection**: interactive visual selection on page.
 - **Ask file name before save**: toggle save dialog behavior.
 
-## :wrench: Build Packages
+## 🔧 Build Packages
 
 ### Build ZIP (Chrome Web Store upload)
 
@@ -74,7 +74,7 @@ Notes:
 - The CRX script auto-detects Chrome/Edge on macOS.
 - First run creates a `.pem` key. Keep it safe to preserve extension identity.
 
-## :lock: Privacy & Data
+## 🔒 Privacy & Data
 
 - Export happens locally in the browser.
 - No remote PDF generation service is required.
@@ -87,7 +87,7 @@ See:
 - `store-assets/chrome-web-store-privacy-form.en-US.md`
 - `store-assets/chrome-web-store-privacy-form.zh-CN.md`
 
-## :file_folder: Key Files
+## 📁 Key Files
 
 - `manifest.json`: Extension manifest (MV3)
 - `popup.html`: Popup structure
@@ -98,7 +98,7 @@ See:
 - `scripts/package-extension.sh`: ZIP packaging script
 - `scripts/package-extension-crx.sh`: CRX packaging script
 
-## :package: Store Assets
+## 📦 Store Assets
 
 - Listing copy: `store-assets/chrome-web-store-listing.md`
 - Listing copy (EN): `store-assets/chrome-web-store-listing.en-US.md`
@@ -108,7 +108,7 @@ See:
 - Support page: `store-assets/support.html`
 - Screenshots and banner: `store-assets/`
 
-## :memo: Release Notes
+## 📝 Release Notes
 
 - [CHANGELOG.md](CHANGELOG.md)
 - [CHANGELOG.zh-CN.md](CHANGELOG.zh-CN.md)
@@ -117,6 +117,6 @@ See:
 - [CHANGELOG.fr.md](CHANGELOG.fr.md)
 - [CHANGELOG.de.md](CHANGELOG.de.md)
 
-## :bust_in_silhouette: Metadata
+## 👤 Metadata
 
 - Author: `SQHOME-SUN`
