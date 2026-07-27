@@ -1,0 +1,128 @@
+{
+  "extName": {
+    "message": "单页 PDF 导出器"
+  },
+  "extDescription": {
+    "message": "将当前标签页导出为单页 PDF，并尽量保留布局与样式。"
+  },
+  "actionTitle": {
+    "message": "单页 PDF"
+  },
+  "popupTitle": {
+    "message": "单页 PDF"
+  },
+  "popupHeading": {
+    "message": "单页 PDF"
+  },
+  "popupHint": {
+    "message": "通过左/右/上/下边界精确选择区域，并导出为单页 PDF。"
+  },
+  "languageLabel": {
+    "message": "语言"
+  },
+  "labelLeft": {
+    "message": "左边界 (px)"
+  },
+  "labelRight": {
+    "message": "右边界 (px)"
+  },
+  "labelTop": {
+    "message": "上边界 (px)"
+  },
+  "labelBottom": {
+    "message": "下边界 (px)"
+  },
+  "regionSize": {
+    "message": "区域尺寸：$1px x $2px"
+  },
+  "askFileNameBeforeSave": {
+    "message": "保存前询问文件名"
+  },
+  "startRangeSelection": {
+    "message": "开始滚动选区"
+  },
+  "refreshCurrentBounds": {
+    "message": "刷新当前边界"
+  },
+  "exportCurrentTab": {
+    "message": "导出当前标签页"
+  },
+  "notesSummary": {
+    "message": "说明"
+  },
+  "noteLoadedPage": {
+    "message": "页面完全加载后导出效果最佳。"
+  },
+  "noteFileUrl": {
+    "message": "导出本地文件页面时，请在扩展详情中启用“允许访问文件网址”。"
+  },
+  "statusPreparingPage": {
+    "message": "正在准备页面..."
+  },
+  "statusRenderingPdf": {
+    "message": "正在渲染单页 PDF..."
+  },
+  "statusSavingFile": {
+    "message": "正在保存文件..."
+  },
+  "statusDetectingBounds": {
+    "message": "正在检测当前边界..."
+  },
+  "statusBoundsLoadedCanExport": {
+    "message": "边界已加载，可以导出了。"
+  },
+  "statusStartingRangeMode": {
+    "message": "正在启动选区模式..."
+  },
+  "statusRangeModeAlreadyActive": {
+    "message": "页面上的选区模式已在运行。"
+  },
+  "statusRangeModeActive": {
+    "message": "选区模式已启用。请滚动并在浮层中点击 Done。"
+  },
+  "statusDetectedBounds": {
+    "message": "已检测边界：左=$1px 右=$2px 上=$3px 下=$4px"
+  },
+  "statusDoneRegion": {
+    "message": "完成。区域：左=$1px 右=$2px 上=$3px 下=$4px"
+  },
+  "statusCapturedLoaded": {
+    "message": "已加载选区：左=$1px 右=$2px 上=$3px 下=$4px"
+  },
+  "errorNoActiveTab": {
+    "message": "未找到活动标签页。"
+  },
+  "errorCannotAccessTabId": {
+    "message": "无法访问活动标签页 ID。"
+  },
+  "errorFailedMeasure": {
+    "message": "检测当前页面尺寸失败。"
+  },
+  "errorFailedSelectRange": {
+    "message": "启动滚动选区失败。"
+  },
+  "errorFailedPdfData": {
+    "message": "生成 PDF 数据失败。"
+  },
+  "overlayTitle": {
+    "message": "选择导出区域"
+  },
+  "overlayInstructionExpand": {
+    "message": "向下滚动可扩展下/右边界，向上滚动可收缩下/右边界。"
+  },
+  "overlayInstructionAnchor": {
+    "message": "上/左边界会固定在开始选区的位置。"
+  },
+  "overlayInitializing": {
+    "message": "初始化中..."
+  },
+  "overlayDone": {
+    "message": "完成"
+  },
+  "overlayCancel": {
+    "message": "取消"
+  },
+  "overlayRangeFormat": {
+    "message": "左=$1px 右=$2px 上=$3px 下=$4px"
+  }
+}

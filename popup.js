@@ -8,8 +8,150 @@ const rightInput = document.getElementById("rightPx");
 const topInput = document.getElementById("topPx");
 const bottomInput = document.getElementById("bottomPx");
 const saveAsInput = document.getElementById("saveAs");
+const languageSelect = document.getElementById("languageSelect");
 
 let selectedRegion = null;
+const SUPPORTED_LOCALES = ["en", "zh-CN", "zh-TW", "es", "fr", "de"];
+const LOCALE_TO_FOLDER = {
+  en: "en",
+  "zh-CN": "zh_CN",
+  "zh-TW": "zh_TW",
+  es: "es",
+  fr: "fr",
+  de: "de"
+};
+const PREFERRED_LOCALE_KEY = "singlePagePdfPreferredLocale";
+
+let activeLocale = "en";
+let activeMessages = {};
+let fallbackMessages = {};
+
+async function loadLocaleMessages(locale) {
+  const folder = LOCALE_TO_FOLDER[locale] || "en";
+  const url = chrome.runtime.getURL(`_locales/${folder}/messages.json`);
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`Failed to load locale file: ${folder}`);
+  }
+  return response.json();
+}
+
+function normalizeLocale(input) {
+  const value = String(input || "").trim();
+  if (!value) return "en";
+
+  const lower = value.toLowerCase();
+  if (lower.startsWith("zh")) {
+    if (lower.includes("hant") || lower.includes("tw") || lower.includes("hk") || lower.includes("mo")) {
+      return "zh-TW";
+    }
+    return "zh-CN";
+  }
+  if (lower.startsWith("es")) return "es";
+  if (lower.startsWith("fr")) return "fr";
+  if (lower.startsWith("de")) return "de";
+  return "en";
+}
+
+function browserLocale() {
+  return normalizeLocale(chrome.i18n.getUILanguage());
+}
+
+function renderTemplate(template, substitutions) {
+  const values = Array.isArray(substitutions) ? substitutions : [substitutions];
+  let output = String(template || "");
+
+  values.forEach((value, index) => {
+    const token = `$${index + 1}`;
+    output = output.split(token).join(String(value ?? ""));
+  });
+
+  return output;
+}
+
+function t(key, substitutions) {
+  const primary = activeMessages?.[key]?.message;
+  const fallback = fallbackMessages?.[key]?.message;
+  const template = primary || fallback || key;
+  return renderTemplate(template, substitutions);
+}
+
+async function setLocale(locale, persist = false) {
+  const normalized = SUPPORTED_LOCALES.includes(locale) ? locale : normalizeLocale(locale);
+  activeLocale = SUPPORTED_LOCALES.includes(normalized) ? normalized : "en";
+
+  activeMessages = await loadLocaleMessages(activeLocale);
+  localizePopup();
+
+  if (selectedRegion) {
+    updateRegionMeta(selectedRegion);
+  }
+
+  if (languageSelect) {
+    languageSelect.value = activeLocale;
+  }
+
+  if (persist) {
+    await chrome.storage.local.set({ [PREFERRED_LOCALE_KEY]: activeLocale });
+  }
+}
+
+async function initializeLocale() {
+  fallbackMessages = await loadLocaleMessages("en");
+
+  const storage = await chrome.storage.local.get(PREFERRED_LOCALE_KEY);
+  const preferred = storage?.[PREFERRED_LOCALE_KEY];
+  const initialLocale = preferred ? normalizeLocale(preferred) : browserLocale();
+  await setLocale(initialLocale, false);
+
+  if (languageSelect) {
+    languageSelect.addEventListener("change", async () => {
+      await setLocale(languageSelect.value, true);
+    });
+  }
+}
+
+function formatBoundsMessage(messageKey, region) {
+  return t(messageKey, [
+    String(region.left),
+    String(region.right),
+    String(region.top),
+    String(region.bottom)
+  ]);
+}
+
+function localizePopup() {
+  document.documentElement.lang = activeLocale;
+  document.title = t("popupTitle");
+
+  const uiMap = {
+    popupHeading: "popupHeading",
+    popupHint: "popupHint",
+    labelLeft: "labelLeft",
+    labelRight: "labelRight",
+    labelTop: "labelTop",
+    labelBottom: "labelBottom",
+    labelSaveAs: "askFileNameBeforeSave",
+    selectRangeBtn: "startRangeSelection",
+    refreshBtn: "refreshCurrentBounds",
+    exportBtn: "exportCurrentTab",
+    notesSummary: "notesSummary",
+    noteLoadedPage: "noteLoadedPage",
+    noteFileUrl: "noteFileUrl"
+  };
+
+  for (const [id, messageKey] of Object.entries(uiMap)) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.textContent = t(messageKey);
+    }
+  }
+
+  if (languageSelect) {
+    languageSelect.setAttribute("aria-label", t("languageLabel"));
+    languageSelect.setAttribute("title", t("languageLabel"));
+  }
+}
 
 function setStatus(message, type = "") {
   statusEl.textContent = message;
@@ -39,7 +181,7 @@ function base64ToBlob(base64, mimeType) {
 function updateRegionMeta(region) {
   const width = Math.max(1, region.right - region.left);
   const height = Math.max(1, region.bottom - region.top);
-  regionMetaEl.textContent = `Region size: ${width}px x ${height}px`;
+  regionMetaEl.textContent = t("regionSize", [String(width), String(height)]);
 }
 
 function setRegionInputs(region) {
@@ -62,7 +204,7 @@ function getRegionFromInputs() {
 async function getActiveTab() {
   const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
   if (!tabs.length || !tabs[0].id) {
-    throw new Error("No active tab found.");
+    throw new Error(t("errorNoActiveTab"));
   }
   return tabs[0];
 }
@@ -142,7 +284,7 @@ async function measurePage(tabId) {
   });
 
   if (!result.length || !result[0].result) {
-    throw new Error("Failed to measure current page.");
+    throw new Error(t("errorFailedMeasure"));
   }
 
   return result[0].result;
@@ -175,7 +317,7 @@ async function printToSinglePagePdf(tabId, paperWidthIn, paperHeightIn) {
     });
 
     if (!result?.data) {
-      throw new Error("Failed to generate PDF data.");
+      throw new Error(t("errorFailedPdfData"));
     }
 
     return result.data;
@@ -198,9 +340,20 @@ async function downloadPdf(base64Data, suggestedName, saveAs) {
 }
 
 async function selectScrollRange(tabId) {
+  const overlayText = {
+    title: t("overlayTitle"),
+    instructionExpand: t("overlayInstructionExpand"),
+    instructionAnchor: t("overlayInstructionAnchor"),
+    initializing: t("overlayInitializing"),
+    done: t("overlayDone"),
+    cancel: t("overlayCancel"),
+    rangeFormat: t("overlayRangeFormat")
+  };
+
   const result = await chrome.scripting.executeScript({
     target: { tabId },
-    func: () => {
+    args: [overlayText],
+    func: (messages) => {
       const existing = window.__singlePagePdfSelectionController;
       if (existing && typeof existing.show === "function") {
         existing.show();
@@ -298,13 +451,13 @@ async function selectScrollRange(tabId) {
         const overlay = document.createElement("div");
         overlay.id = overlayId;
         overlay.innerHTML = `
-          <h3>Select Region</h3>
-          <p>Scroll to expand bottom/right. Scroll back up to reduce bottom/right.</p>
-          <p>Top/left stay anchored at where you started selection.</p>
-          <div class="range">Initializing...</div>
+          <h3>${messages.title}</h3>
+          <p>${messages.instructionExpand}</p>
+          <p>${messages.instructionAnchor}</p>
+          <div class="range">${messages.initializing}</div>
           <div class="actions">
-            <button class="done" type="button">Done</button>
-            <button class="cancel" type="button">Cancel</button>
+            <button class="done" type="button">${messages.done}</button>
+            <button class="cancel" type="button">${messages.cancel}</button>
           </div>
         `;
         document.documentElement.appendChild(overlay);
@@ -428,7 +581,11 @@ async function selectScrollRange(tabId) {
           const visibleWidth = Math.max(0, clampedRight - clampedLeft);
           const visibleHeight = Math.max(0, clampedBottom - clampedTop);
 
-          rangeEl.textContent = `left=${left}px right=${right}px top=${top}px bottom=${bottom}px`;
+          rangeEl.textContent = messages.rangeFormat
+            .replace("$1", String(left))
+            .replace("$2", String(right))
+            .replace("$3", String(top))
+            .replace("$4", String(bottom));
 
           if (visibleWidth < 1 || visibleHeight < 1) {
             area.style.display = "none";
@@ -511,7 +668,7 @@ async function selectScrollRange(tabId) {
   });
 
   if (!result.length || !result[0].result) {
-    throw new Error("Failed to select scroll range.");
+    throw new Error(t("errorFailedSelectRange"));
   }
 
   return result[0].result;
@@ -591,7 +748,7 @@ async function clearExportRange(tabId) {
 async function refreshCurrentBounds(showStatus = true) {
   const tab = await getActiveTab();
   if (!tab.id) {
-    throw new Error("Cannot access active tab id.");
+    throw new Error(t("errorCannotAccessTabId"));
   }
 
   const metrics = await measurePage(tab.id);
@@ -604,10 +761,7 @@ async function refreshCurrentBounds(showStatus = true) {
   setRegionInputs(selectedRegion);
 
   if (showStatus) {
-    setStatus(
-      `Detected bounds: left=${metrics.left}px right=${metrics.right}px top=${metrics.top}px bottom=${metrics.bottom}px`,
-      "success"
-    );
+    setStatus(formatBoundsMessage("statusDetectedBounds", metrics), "success");
   }
 
   return { tab, metrics };
@@ -640,12 +794,12 @@ async function exportCurrentTab() {
   exportBtn.disabled = true;
   selectRangeBtn.disabled = true;
   refreshBtn.disabled = true;
-  setStatus("Preparing page...", "");
+  setStatus(t("statusPreparingPage"), "");
 
   try {
     const tab = await getActiveTab();
     if (!tab.id) {
-      throw new Error("Cannot access active tab id.");
+      throw new Error(t("errorCannotAccessTabId"));
     }
 
     const metrics = { title: tab.title || "page" };
@@ -663,19 +817,16 @@ async function exportCurrentTab() {
 
     let pdfBase64;
     try {
-      setStatus("Rendering single-page PDF...", "");
+      setStatus(t("statusRenderingPdf"), "");
       pdfBase64 = await printToSinglePagePdf(tab.id, pageWidthIn, pageHeightIn);
     } finally {
       await clearExportRange(tab.id);
     }
 
-    setStatus("Saving file...", "");
+    setStatus(t("statusSavingFile"), "");
     await downloadPdf(pdfBase64, metrics.title, saveAsInput.checked);
 
-    setStatus(
-      `Done. Region: left=${region.left}px right=${region.right}px top=${region.top}px bottom=${region.bottom}px`,
-      "success"
-    );
+    setStatus(formatBoundsMessage("statusDoneRegion", region), "success");
   } catch (error) {
     const message = error?.message || String(error);
     setStatus(message, "error");
@@ -690,7 +841,7 @@ async function initializePopup() {
   exportBtn.disabled = true;
   selectRangeBtn.disabled = true;
   refreshBtn.disabled = true;
-  setStatus("Detecting current bounds...", "");
+  setStatus(t("statusDetectingBounds"), "");
 
   try {
     const refreshed = await refreshCurrentBounds(false);
@@ -698,11 +849,11 @@ async function initializePopup() {
 
     if (captured) {
       setStatus(
-        `Captured region loaded: left=${captured.left}px right=${captured.right}px top=${captured.top}px bottom=${captured.bottom}px`,
+        formatBoundsMessage("statusCapturedLoaded", captured),
         "success"
       );
     } else {
-      setStatus("Bounds loaded. You can export now.", "success");
+      setStatus(t("statusBoundsLoadedCanExport"), "success");
     }
   } catch (error) {
     const message = error?.message || String(error);
@@ -742,22 +893,19 @@ selectRangeBtn.addEventListener("click", async () => {
   exportBtn.disabled = true;
   selectRangeBtn.disabled = true;
   refreshBtn.disabled = true;
-  setStatus("Starting range mode...", "");
+  setStatus(t("statusStartingRangeMode"), "");
 
   try {
     const tab = await getActiveTab();
     if (!tab.id) {
-      throw new Error("Cannot access active tab id.");
+      throw new Error(t("errorCannotAccessTabId"));
     }
 
     const started = await selectScrollRange(tab.id);
     if (started.alreadyRunning) {
-      setStatus("Range mode is already active on page.", "success");
+      setStatus(t("statusRangeModeAlreadyActive"), "success");
     } else {
-      setStatus(
-        "Range mode is active on page. Scroll and click Done in overlay.",
-        "success"
-      );
+      setStatus(t("statusRangeModeActive"), "success");
     }
 
     window.close();
@@ -771,4 +919,16 @@ selectRangeBtn.addEventListener("click", async () => {
   }
 });
 
-initializePopup();
+async function bootstrap() {
+  try {
+    await initializeLocale();
+  } catch {
+    activeLocale = "en";
+    activeMessages = fallbackMessages;
+    localizePopup();
+  }
+
+  await initializePopup();
+}
+
+void bootstrap();

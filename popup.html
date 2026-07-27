@@ -3,29 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Single Page PDF</title>
+  <title id="popupTitle">Single Page PDF</title>
   <link rel="stylesheet" href="popup.css" />
 </head>
 <body>
   <main class="app">
-    <h1>Single Page PDF</h1>
-    <p class="hint">Choose exact region with left/right/top/bottom and export one-page PDF.</p>
+    <div class="topbar">
+      <h1 id="popupHeading">Single Page PDF</h1>
+      <label class="lang-switch" for="languageSelect">
+        <select id="languageSelect">
+          <option value="en">🇺🇸 English</option>
+          <option value="zh-CN">🇨🇳 简体中文</option>
+          <option value="zh-TW">🇭🇰 繁體中文</option>
+          <option value="es">🇪🇸 Español</option>
+          <option value="fr">🇫🇷 Français</option>
+          <option value="de">🇩🇪 Deutsch</option>
+        </select>
+      </label>
+    </div>
+    <p class="hint" id="popupHint">Choose exact region with left/right/top/bottom and export one-page PDF.</p>
 
     <div class="coord-grid">
       <div class="coord-item">
-        <label class="field" for="leftPx">Left (px)</label>
+        <label class="field" for="leftPx" id="labelLeft">Left (px)</label>
         <input id="leftPx" type="number" min="0" step="1" />
       </div>
       <div class="coord-item">
-        <label class="field" for="rightPx">Right (px)</label>
+        <label class="field" for="rightPx" id="labelRight">Right (px)</label>
         <input id="rightPx" type="number" min="1" step="1" />
       </div>
       <div class="coord-item">
-        <label class="field" for="topPx">Top (px)</label>
+        <label class="field" for="topPx" id="labelTop">Top (px)</label>
         <input id="topPx" type="number" min="0" step="1" />
       </div>
       <div class="coord-item">
-        <label class="field" for="bottomPx">Bottom (px)</label>
+        <label class="field" for="bottomPx" id="labelBottom">Bottom (px)</label>
         <input id="bottomPx" type="number" min="1" step="1" />
       </div>
     </div>
@@ -34,7 +46,7 @@
 
     <label class="field" for="saveAs">
       <input id="saveAs" type="checkbox" checked />
-      Ask file name before save
+      <span id="labelSaveAs">Ask file name before save</span>
     </label>
 
     <button id="selectRangeBtn" type="button" class="secondary">Start Scroll Range Selection</button>
@@ -43,10 +55,10 @@
     <p id="status" class="status" aria-live="polite"></p>
 
     <details class="tips">
-      <summary>Notes</summary>
+      <summary id="notesSummary">Notes</summary>
       <ul>
-        <li>Works best on fully loaded pages.</li>
-        <li>For local file pages, enable extension access to file URLs in extension details.</li>
+        <li id="noteLoadedPage">Works best on fully loaded pages.</li>
+        <li id="noteFileUrl">For local file pages, enable extension access to file URLs in extension details.</li>
       </ul>
     </details>
   </main>

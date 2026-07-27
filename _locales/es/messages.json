@@ -1,0 +1,128 @@
+{
+  "extName": {
+    "message": "Exportador PDF de una sola página"
+  },
+  "extDescription": {
+    "message": "Exporta la pestaña actual como un PDF de una sola página, conservando el diseño y los estilos."
+  },
+  "actionTitle": {
+    "message": "PDF de una sola página"
+  },
+  "popupTitle": {
+    "message": "PDF de una sola página"
+  },
+  "popupHeading": {
+    "message": "PDF de una sola página"
+  },
+  "popupHint": {
+    "message": "Elige una región exacta con left/right/top/bottom y exporta un PDF de una sola página."
+  },
+  "languageLabel": {
+    "message": "Idioma"
+  },
+  "labelLeft": {
+    "message": "Izquierda (px)"
+  },
+  "labelRight": {
+    "message": "Derecha (px)"
+  },
+  "labelTop": {
+    "message": "Arriba (px)"
+  },
+  "labelBottom": {
+    "message": "Abajo (px)"
+  },
+  "regionSize": {
+    "message": "Tamaño de región: $1px x $2px"
+  },
+  "askFileNameBeforeSave": {
+    "message": "Preguntar nombre de archivo antes de guardar"
+  },
+  "startRangeSelection": {
+    "message": "Iniciar selección por desplazamiento"
+  },
+  "refreshCurrentBounds": {
+    "message": "Actualizar límites actuales"
+  },
+  "exportCurrentTab": {
+    "message": "Exportar pestaña actual"
+  },
+  "notesSummary": {
+    "message": "Notas"
+  },
+  "noteLoadedPage": {
+    "message": "Funciona mejor en páginas completamente cargadas."
+  },
+  "noteFileUrl": {
+    "message": "Para páginas de archivos locales, habilita el acceso a URL de archivo en los detalles de la extensión."
+  },
+  "statusPreparingPage": {
+    "message": "Preparando página..."
+  },
+  "statusRenderingPdf": {
+    "message": "Generando PDF de una sola página..."
+  },
+  "statusSavingFile": {
+    "message": "Guardando archivo..."
+  },
+  "statusDetectingBounds": {
+    "message": "Detectando límites actuales..."
+  },
+  "statusBoundsLoadedCanExport": {
+    "message": "Límites cargados. Ya puedes exportar."
+  },
+  "statusStartingRangeMode": {
+    "message": "Iniciando modo de selección..."
+  },
+  "statusRangeModeAlreadyActive": {
+    "message": "El modo de selección ya está activo en la página."
+  },
+  "statusRangeModeActive": {
+    "message": "El modo de selección está activo. Desplázate y haz clic en Done en la superposición."
+  },
+  "statusDetectedBounds": {
+    "message": "Límites detectados: left=$1px right=$2px top=$3px bottom=$4px"
+  },
+  "statusDoneRegion": {
+    "message": "Hecho. Región: left=$1px right=$2px top=$3px bottom=$4px"
+  },
+  "statusCapturedLoaded": {
+    "message": "Región capturada cargada: left=$1px right=$2px top=$3px bottom=$4px"
+  },
+  "errorNoActiveTab": {
+    "message": "No se encontró una pestaña activa."
+  },
+  "errorCannotAccessTabId": {
+    "message": "No se puede acceder al ID de la pestaña activa."
+  },
+  "errorFailedMeasure": {
+    "message": "No se pudieron medir las dimensiones de la página actual."
+  },
+  "errorFailedSelectRange": {
+    "message": "No se pudo iniciar la selección por desplazamiento."
+  },
+  "errorFailedPdfData": {
+    "message": "No se pudieron generar los datos PDF."
+  },
+  "overlayTitle": {
+    "message": "Seleccionar región"
+  },
+  "overlayInstructionExpand": {
+    "message": "Desplázate para ampliar abajo/derecha. Vuelve hacia arriba para reducir abajo/derecha."
+  },
+  "overlayInstructionAnchor": {
+    "message": "Arriba/izquierda se mantienen anclados al punto inicial."
+  },
+  "overlayInitializing": {
+    "message": "Inicializando..."
+  },
+  "overlayDone": {
+    "message": "Done"
+  },
+  "overlayCancel": {
+    "message": "Cancelar"
+  },
+  "overlayRangeFormat": {
+    "message": "left=$1px right=$2px top=$3px bottom=$4px"
+  }
+}

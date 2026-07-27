@@ -1,0 +1,128 @@
+{
+  "extName": {
+    "message": "Einseitiger PDF-Exporter"
+  },
+  "extDescription": {
+    "message": "Exportiert den aktuellen Tab als einseitiges PDF und behält Layout und Stile bei."
+  },
+  "actionTitle": {
+    "message": "Einseitiges PDF"
+  },
+  "popupTitle": {
+    "message": "Einseitiges PDF"
+  },
+  "popupHeading": {
+    "message": "Einseitiges PDF"
+  },
+  "popupHint": {
+    "message": "Wähle mit left/right/top/bottom einen genauen Bereich und exportiere ein einseitiges PDF."
+  },
+  "languageLabel": {
+    "message": "Sprache"
+  },
+  "labelLeft": {
+    "message": "Links (px)"
+  },
+  "labelRight": {
+    "message": "Rechts (px)"
+  },
+  "labelTop": {
+    "message": "Oben (px)"
+  },
+  "labelBottom": {
+    "message": "Unten (px)"
+  },
+  "regionSize": {
+    "message": "Bereichsgröße: $1px x $2px"
+  },
+  "askFileNameBeforeSave": {
+    "message": "Vor dem Speichern nach Dateinamen fragen"
+  },
+  "startRangeSelection": {
+    "message": "Scroll-Bereichsauswahl starten"
+  },
+  "refreshCurrentBounds": {
+    "message": "Aktuelle Grenzen aktualisieren"
+  },
+  "exportCurrentTab": {
+    "message": "Aktuellen Tab exportieren"
+  },
+  "notesSummary": {
+    "message": "Hinweise"
+  },
+  "noteLoadedPage": {
+    "message": "Funktioniert am besten bei vollständig geladenen Seiten."
+  },
+  "noteFileUrl": {
+    "message": "Für lokale Dateiseiten aktiviere in den Erweiterungsdetails den Zugriff auf Datei-URLs."
+  },
+  "statusPreparingPage": {
+    "message": "Seite wird vorbereitet..."
+  },
+  "statusRenderingPdf": {
+    "message": "Einseitiges PDF wird erstellt..."
+  },
+  "statusSavingFile": {
+    "message": "Datei wird gespeichert..."
+  },
+  "statusDetectingBounds": {
+    "message": "Aktuelle Grenzen werden erkannt..."
+  },
+  "statusBoundsLoadedCanExport": {
+    "message": "Grenzen geladen. Du kannst jetzt exportieren."
+  },
+  "statusStartingRangeMode": {
+    "message": "Bereichsmodus wird gestartet..."
+  },
+  "statusRangeModeAlreadyActive": {
+    "message": "Der Bereichsmodus ist auf der Seite bereits aktiv."
+  },
+  "statusRangeModeActive": {
+    "message": "Der Bereichsmodus ist auf der Seite aktiv. Scrolle und klicke im Overlay auf Done."
+  },
+  "statusDetectedBounds": {
+    "message": "Grenzen erkannt: left=$1px right=$2px top=$3px bottom=$4px"
+  },
+  "statusDoneRegion": {
+    "message": "Fertig. Bereich: left=$1px right=$2px top=$3px bottom=$4px"
+  },
+  "statusCapturedLoaded": {
+    "message": "Erfasster Bereich geladen: left=$1px right=$2px top=$3px bottom=$4px"
+  },
+  "errorNoActiveTab": {
+    "message": "Kein aktiver Tab gefunden."
+  },
+  "errorCannotAccessTabId": {
+    "message": "Auf die ID des aktiven Tabs kann nicht zugegriffen werden."
+  },
+  "errorFailedMeasure": {
+    "message": "Die aktuelle Seite konnte nicht vermessen werden."
+  },
+  "errorFailedSelectRange": {
+    "message": "Scroll-Bereichsauswahl konnte nicht gestartet werden."
+  },
+  "errorFailedPdfData": {
+    "message": "PDF-Daten konnten nicht erzeugt werden."
+  },
+  "overlayTitle": {
+    "message": "Bereich auswählen"
+  },
+  "overlayInstructionExpand": {
+    "message": "Zum Erweitern nach unten/rechts scrollen. Nach oben scrollen, um unten/rechts zu verkleinern."
+  },
+  "overlayInstructionAnchor": {
+    "message": "Oben/links bleiben an der Startposition verankert."
+  },
+  "overlayInitializing": {
+    "message": "Wird initialisiert..."
+  },
+  "overlayDone": {
+    "message": "Done"
+  },
+  "overlayCancel": {
+    "message": "Abbrechen"
+  },
+  "overlayRangeFormat": {
+    "message": "left=$1px right=$2px top=$3px bottom=$4px"
+  }
+}

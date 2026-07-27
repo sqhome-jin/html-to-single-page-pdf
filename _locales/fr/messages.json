@@ -1,0 +1,128 @@
+{
+  "extName": {
+    "message": "Exportateur PDF en une page"
+  },
+  "extDescription": {
+    "message": "Exporte l'onglet actuel en PDF sur une seule page tout en conservant la mise en page et les styles."
+  },
+  "actionTitle": {
+    "message": "PDF une page"
+  },
+  "popupTitle": {
+    "message": "PDF une page"
+  },
+  "popupHeading": {
+    "message": "PDF une page"
+  },
+  "popupHint": {
+    "message": "Choisissez une zone précise avec left/right/top/bottom et exportez un PDF en une page."
+  },
+  "languageLabel": {
+    "message": "Langue"
+  },
+  "labelLeft": {
+    "message": "Gauche (px)"
+  },
+  "labelRight": {
+    "message": "Droite (px)"
+  },
+  "labelTop": {
+    "message": "Haut (px)"
+  },
+  "labelBottom": {
+    "message": "Bas (px)"
+  },
+  "regionSize": {
+    "message": "Taille de la zone : $1px x $2px"
+  },
+  "askFileNameBeforeSave": {
+    "message": "Demander le nom du fichier avant l'enregistrement"
+  },
+  "startRangeSelection": {
+    "message": "Démarrer la sélection par défilement"
+  },
+  "refreshCurrentBounds": {
+    "message": "Actualiser les limites actuelles"
+  },
+  "exportCurrentTab": {
+    "message": "Exporter l'onglet actuel"
+  },
+  "notesSummary": {
+    "message": "Notes"
+  },
+  "noteLoadedPage": {
+    "message": "Fonctionne mieux sur des pages entièrement chargées."
+  },
+  "noteFileUrl": {
+    "message": "Pour les pages de fichier local, activez l'accès aux URL de fichier dans les détails de l'extension."
+  },
+  "statusPreparingPage": {
+    "message": "Préparation de la page..."
+  },
+  "statusRenderingPdf": {
+    "message": "Génération du PDF en une page..."
+  },
+  "statusSavingFile": {
+    "message": "Enregistrement du fichier..."
+  },
+  "statusDetectingBounds": {
+    "message": "Détection des limites actuelles..."
+  },
+  "statusBoundsLoadedCanExport": {
+    "message": "Limites chargées. Vous pouvez exporter maintenant."
+  },
+  "statusStartingRangeMode": {
+    "message": "Démarrage du mode de sélection..."
+  },
+  "statusRangeModeAlreadyActive": {
+    "message": "Le mode de sélection est déjà actif sur la page."
+  },
+  "statusRangeModeActive": {
+    "message": "Le mode de sélection est actif sur la page. Faites défiler puis cliquez sur Done dans l'overlay."
+  },
+  "statusDetectedBounds": {
+    "message": "Limites détectées : left=$1px right=$2px top=$3px bottom=$4px"
+  },
+  "statusDoneRegion": {
+    "message": "Terminé. Zone : left=$1px right=$2px top=$3px bottom=$4px"
+  },
+  "statusCapturedLoaded": {
+    "message": "Zone capturée chargée : left=$1px right=$2px top=$3px bottom=$4px"
+  },
+  "errorNoActiveTab": {
+    "message": "Aucun onglet actif trouvé."
+  },
+  "errorCannotAccessTabId": {
+    "message": "Impossible d'accéder à l'ID de l'onglet actif."
+  },
+  "errorFailedMeasure": {
+    "message": "Impossible de mesurer la page actuelle."
+  },
+  "errorFailedSelectRange": {
+    "message": "Échec du démarrage de la sélection par défilement."
+  },
+  "errorFailedPdfData": {
+    "message": "Échec de la génération des données PDF."
+  },
+  "overlayTitle": {
+    "message": "Sélectionner une zone"
+  },
+  "overlayInstructionExpand": {
+    "message": "Faites défiler pour étendre bas/droite. Revenez vers le haut pour réduire bas/droite."
+  },
+  "overlayInstructionAnchor": {
+    "message": "Haut/gauche restent ancrés à la position de départ."
+  },
+  "overlayInitializing": {
+    "message": "Initialisation..."
+  },
+  "overlayDone": {
+    "message": "Done"
+  },
+  "overlayCancel": {
+    "message": "Annuler"
+  },
+  "overlayRangeFormat": {
+    "message": "left=$1px right=$2px top=$3px bottom=$4px"
+  }
+}

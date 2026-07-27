@@ -21,6 +21,7 @@ This extension is self-contained in this directory and can be packaged independe
 4. Save the generated PDF.
 
 Optional settings in popup:
+- **Language**: supports 6 common languages (English, Simplified Chinese, Traditional Chinese, Spanish, French, German). By default it follows browser language, and users can switch manually with flag-labeled options.
 - **Left/Right/Top/Bottom (px)**: precise region coordinates, auto-filled and editable.
 - **Refresh Current Bounds**: manually refresh current full-page boundaries.
 - **Start Scroll Range Selection**: enter visual selection mode with clear green highlight area (no blur glass layer).

@@ -1,0 +1,128 @@
+{
+  "extName": {
+    "message": "單頁 PDF 匯出器"
+  },
+  "extDescription": {
+    "message": "將目前分頁匯出為單頁 PDF，並盡量保留版面與樣式。"
+  },
+  "actionTitle": {
+    "message": "單頁 PDF"
+  },
+  "popupTitle": {
+    "message": "單頁 PDF"
+  },
+  "popupHeading": {
+    "message": "單頁 PDF"
+  },
+  "popupHint": {
+    "message": "透過左/右/上/下邊界精準選取範圍，並匯出為單頁 PDF。"
+  },
+  "languageLabel": {
+    "message": "語言"
+  },
+  "labelLeft": {
+    "message": "左邊界 (px)"
+  },
+  "labelRight": {
+    "message": "右邊界 (px)"
+  },
+  "labelTop": {
+    "message": "上邊界 (px)"
+  },
+  "labelBottom": {
+    "message": "下邊界 (px)"
+  },
+  "regionSize": {
+    "message": "區域尺寸：$1px x $2px"
+  },
+  "askFileNameBeforeSave": {
+    "message": "儲存前詢問檔名"
+  },
+  "startRangeSelection": {
+    "message": "開始捲動選區"
+  },
+  "refreshCurrentBounds": {
+    "message": "重新整理目前邊界"
+  },
+  "exportCurrentTab": {
+    "message": "匯出目前分頁"
+  },
+  "notesSummary": {
+    "message": "說明"
+  },
+  "noteLoadedPage": {
+    "message": "頁面完全載入後匯出效果最佳。"
+  },
+  "noteFileUrl": {
+    "message": "匯出本機檔案頁面時，請在擴充功能詳情中啟用「允許存取檔案網址」。"
+  },
+  "statusPreparingPage": {
+    "message": "正在準備頁面..."
+  },
+  "statusRenderingPdf": {
+    "message": "正在產生單頁 PDF..."
+  },
+  "statusSavingFile": {
+    "message": "正在儲存檔案..."
+  },
+  "statusDetectingBounds": {
+    "message": "正在偵測目前邊界..."
+  },
+  "statusBoundsLoadedCanExport": {
+    "message": "邊界已載入，現在可以匯出了。"
+  },
+  "statusStartingRangeMode": {
+    "message": "正在啟動選區模式..."
+  },
+  "statusRangeModeAlreadyActive": {
+    "message": "頁面上的選區模式已在執行中。"
+  },
+  "statusRangeModeActive": {
+    "message": "選區模式已啟用。請捲動並在浮層中點擊 Done。"
+  },
+  "statusDetectedBounds": {
+    "message": "已偵測邊界：左=$1px 右=$2px 上=$3px 下=$4px"
+  },
+  "statusDoneRegion": {
+    "message": "完成。區域：左=$1px 右=$2px 上=$3px 下=$4px"
+  },
+  "statusCapturedLoaded": {
+    "message": "已載入選區：左=$1px 右=$2px 上=$3px 下=$4px"
+  },
+  "errorNoActiveTab": {
+    "message": "找不到作用中的分頁。"
+  },
+  "errorCannotAccessTabId": {
+    "message": "無法存取作用中分頁 ID。"
+  },
+  "errorFailedMeasure": {
+    "message": "偵測目前頁面尺寸失敗。"
+  },
+  "errorFailedSelectRange": {
+    "message": "啟動捲動選區失敗。"
+  },
+  "errorFailedPdfData": {
+    "message": "產生 PDF 資料失敗。"
+  },
+  "overlayTitle": {
+    "message": "選擇匯出區域"
+  },
+  "overlayInstructionExpand": {
+    "message": "向下捲動可擴展下/右邊界，向上捲動可收縮下/右邊界。"
+  },
+  "overlayInstructionAnchor": {
+    "message": "上/左邊界會固定在開始選區的位置。"
+  },
+  "overlayInitializing": {
+    "message": "初始化中..."
+  },
+  "overlayDone": {
+    "message": "完成"
+  },
+  "overlayCancel": {
+    "message": "取消"
+  },
+  "overlayRangeFormat": {
+    "message": "左=$1px 右=$2px 上=$3px 下=$4px"
+  }
+}

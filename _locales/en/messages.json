@@ -1,0 +1,128 @@
+{
+  "extName": {
+    "message": "Single Page PDF Exporter"
+  },
+  "extDescription": {
+    "message": "Export the current tab as a single-page PDF while preserving layout and styles."
+  },
+  "actionTitle": {
+    "message": "Single Page PDF"
+  },
+  "popupTitle": {
+    "message": "Single Page PDF"
+  },
+  "popupHeading": {
+    "message": "Single Page PDF"
+  },
+  "popupHint": {
+    "message": "Choose exact region with left/right/top/bottom and export one-page PDF."
+  },
+  "languageLabel": {
+    "message": "Language"
+  },
+  "labelLeft": {
+    "message": "Left (px)"
+  },
+  "labelRight": {
+    "message": "Right (px)"
+  },
+  "labelTop": {
+    "message": "Top (px)"
+  },
+  "labelBottom": {
+    "message": "Bottom (px)"
+  },
+  "regionSize": {
+    "message": "Region size: $1px x $2px"
+  },
+  "askFileNameBeforeSave": {
+    "message": "Ask file name before save"
+  },
+  "startRangeSelection": {
+    "message": "Start Scroll Range Selection"
+  },
+  "refreshCurrentBounds": {
+    "message": "Refresh Current Bounds"
+  },
+  "exportCurrentTab": {
+    "message": "Export Current Tab"
+  },
+  "notesSummary": {
+    "message": "Notes"
+  },
+  "noteLoadedPage": {
+    "message": "Works best on fully loaded pages."
+  },
+  "noteFileUrl": {
+    "message": "For local file pages, enable extension access to file URLs in extension details."
+  },
+  "statusPreparingPage": {
+    "message": "Preparing page..."
+  },
+  "statusRenderingPdf": {
+    "message": "Rendering single-page PDF..."
+  },
+  "statusSavingFile": {
+    "message": "Saving file..."
+  },
+  "statusDetectingBounds": {
+    "message": "Detecting current bounds..."
+  },
+  "statusBoundsLoadedCanExport": {
+    "message": "Bounds loaded. You can export now."
+  },
+  "statusStartingRangeMode": {
+    "message": "Starting range mode..."
+  },
+  "statusRangeModeAlreadyActive": {
+    "message": "Range mode is already active on page."
+  },
+  "statusRangeModeActive": {
+    "message": "Range mode is active on page. Scroll and click Done in overlay."
+  },
+  "statusDetectedBounds": {
+    "message": "Detected bounds: left=$1px right=$2px top=$3px bottom=$4px"
+  },
+  "statusDoneRegion": {
+    "message": "Done. Region: left=$1px right=$2px top=$3px bottom=$4px"
+  },
+  "statusCapturedLoaded": {
+    "message": "Captured region loaded: left=$1px right=$2px top=$3px bottom=$4px"
+  },
+  "errorNoActiveTab": {
+    "message": "No active tab found."
+  },
+  "errorCannotAccessTabId": {
+    "message": "Cannot access active tab id."
+  },
+  "errorFailedMeasure": {
+    "message": "Failed to measure current page."
+  },
+  "errorFailedSelectRange": {
+    "message": "Failed to select scroll range."
+  },
+  "errorFailedPdfData": {
+    "message": "Failed to generate PDF data."
+  },
+  "overlayTitle": {
+    "message": "Select Region"
+  },
+  "overlayInstructionExpand": {
+    "message": "Scroll to expand bottom/right. Scroll back up to reduce bottom/right."
+  },
+  "overlayInstructionAnchor": {
+    "message": "Top/left stay anchored at where you started selection."
+  },
+  "overlayInitializing": {
+    "message": "Initializing..."
+  },
+  "overlayDone": {
+    "message": "Done"
+  },
+  "overlayCancel": {
+    "message": "Cancel"
+  },
+  "overlayRangeFormat": {
+    "message": "left=$1px right=$2px top=$3px bottom=$4px"
+  }
+}
