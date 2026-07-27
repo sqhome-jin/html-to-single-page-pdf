@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.1] - 2026-07-27
+
+### Fixed
+- Prevented floating `fixed/sticky` overlays from covering upper content in exported PDFs by temporarily hiding likely blockers during print and restoring them afterward.
+
+### Added
+- Added one-command CRX packaging script with macOS browser auto-detection fallback.
+
 ## [1.0.0] - 2026-07-22
 
 ### Added

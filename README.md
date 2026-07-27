@@ -77,6 +77,20 @@ bash scripts/package-extension.sh ./release
 
 The script creates a clean ZIP package and excludes local-only files such as store assets, docs, git metadata, and helper scripts.
 
+### Build CRX Package
+
+Run this command from the extension folder:
+
+bash scripts/package-extension-crx.sh
+
+Optional: pass custom output directory and signing key path:
+
+bash scripts/package-extension-crx.sh ./dist ./dist/single-page-pdf-exporter.pem
+
+Notes:
+- This script auto-detects Chrome on macOS. If needed, set `CHROME_BIN` manually.
+- First run generates a `.pem` key; keep it safe, because reusing this key keeps a stable extension ID.
+
 1. Prepare store assets (icon, screenshots, description).
 2. Zip this folder content (do not zip parent folder).
 3. Go to Chrome Web Store Developer Dashboard.

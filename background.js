@@ -43,9 +43,31 @@ async function applyExportRange(tabId, region) {
 
   await executeScript(
     tabId,
-    (left, top, widthPx, heightPx) => {
+    async (left, top, widthPx, heightPx) => {
       const body = document.body;
       const html = document.documentElement;
+      const hiddenAttr = "data-single-page-pdf-hidden-backup";
+
+      const clearHiddenOverlays = () => {
+        const hiddenNodes = html.querySelectorAll(`[${hiddenAttr}]`);
+        for (const el of hiddenNodes) {
+          let backup = null;
+          try {
+            backup = JSON.parse(el.getAttribute(hiddenAttr) || "null");
+          } catch {
+            backup = null;
+          }
+
+          if (backup) {
+            el.style.visibility = backup.visibility || "";
+            el.style.opacity = backup.opacity || "";
+            el.style.pointerEvents = backup.pointerEvents || "";
+          }
+          el.removeAttribute(hiddenAttr);
+        }
+      };
+
+      clearHiddenOverlays();
 
       const backup = {
         bodyTransform: body.style.transform,
@@ -55,7 +77,8 @@ async function applyExportRange(tabId, region) {
         bodyOverflow: body.style.overflow,
         htmlHeight: html.style.height,
         htmlWidth: html.style.width,
-        htmlOverflow: html.style.overflow
+        htmlOverflow: html.style.overflow,
+        hiddenAttr
       };
 
       html.dataset.singlePagePdfBackup = JSON.stringify(backup);
@@ -69,6 +92,60 @@ async function applyExportRange(tabId, region) {
       html.style.width = `${Math.max(1, widthPx)}px`;
       html.style.height = `${Math.max(1, heightPx)}px`;
       html.style.overflow = "hidden";
+
+      const viewportWidth = Math.max(1, window.innerWidth || html.clientWidth || 1);
+      const viewportHeight = Math.max(1, window.innerHeight || html.clientHeight || 1);
+      const viewportArea = viewportWidth * viewportHeight;
+      let hiddenCount = 0;
+
+      for (const el of body.querySelectorAll("*")) {
+        if (hiddenCount >= 400) {
+          break;
+        }
+
+        const computed = window.getComputedStyle(el);
+        const position = computed.position;
+        if (position !== "fixed" && position !== "sticky") {
+          continue;
+        }
+
+        const rect = el.getBoundingClientRect();
+        if (rect.width < 1 || rect.height < 1) {
+          continue;
+        }
+
+        const area = rect.width * rect.height;
+        if (area > viewportArea * 0.95) {
+          continue;
+        }
+
+        const zParsed = Number.parseInt(computed.zIndex, 10);
+        const zIndex = Number.isFinite(zParsed) ? zParsed : 0;
+        const stickyPinned = position === "sticky" && (rect.top <= 1 || rect.bottom >= viewportHeight - 1);
+        const likelyFloating = (position === "fixed" && zIndex >= 1) || (stickyPinned && zIndex >= 1);
+
+        if (!likelyFloating) {
+          continue;
+        }
+
+        const inlineBackup = {
+          visibility: el.style.visibility,
+          opacity: el.style.opacity,
+          pointerEvents: el.style.pointerEvents
+        };
+
+        el.setAttribute(hiddenAttr, JSON.stringify(inlineBackup));
+        el.style.setProperty("visibility", "hidden", "important");
+        el.style.setProperty("opacity", "0", "important");
+        el.style.setProperty("pointer-events", "none", "important");
+        hiddenCount += 1;
+      }
+
+      await new Promise((resolve) => {
+        requestAnimationFrame(() => {
+          requestAnimationFrame(resolve);
+        });
+      });
     },
     [region.left, region.top, width, height]
   );
@@ -99,6 +176,24 @@ async function clearExportRange(tabId) {
       html.style.width = backup.htmlWidth || "";
       html.style.height = backup.htmlHeight || "";
       html.style.overflow = backup.htmlOverflow || "";
+
+      const hiddenAttr = backup.hiddenAttr || "data-single-page-pdf-hidden-backup";
+      const hiddenNodes = html.querySelectorAll(`[${hiddenAttr}]`);
+      for (const el of hiddenNodes) {
+        let inlineBackup = null;
+        try {
+          inlineBackup = JSON.parse(el.getAttribute(hiddenAttr) || "null");
+        } catch {
+          inlineBackup = null;
+        }
+
+        if (inlineBackup) {
+          el.style.visibility = inlineBackup.visibility || "";
+          el.style.opacity = inlineBackup.opacity || "";
+          el.style.pointerEvents = inlineBackup.pointerEvents || "";
+        }
+        el.removeAttribute(hiddenAttr);
+      }
     }
 
     delete html.dataset.singlePagePdfBackup;
